@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import data from './data.json';
+import datas from './data.json';
 import './App.css';
 import 'react-table/react-table.css'
 //import ReactTable from "react-table";
@@ -9,7 +9,7 @@ class App extends Component {
   constructor() {
     super();
   this.state = {
-    headers:{
+/*    headers:{
       identificationNumber: "Identification number",
       name : "Name",
       gender : "Gender",
@@ -20,20 +20,17 @@ class App extends Component {
       lastBreakdown : "Last breakdown",
       yearlyFee : "Yearly fee",
       knowsJoker : "Knows the Joker?",
-    }
+    }*/
   }
   };
 
 
   render() {
-
-    const headers = this.state.headers.name;
-    var people = data.map(function (user, i) {
+    var people = datas.map(function (user, i) {
       return (
         <User
           key={i}
-          headers={headers}
-          identificationNumber={user.data["Identification number"]}
+          /*identificationNumber={user.data["Identification number"]}
           name={user.data["Name"]}
           gender={user.data["Gender"]}
           risk={user.data["Risk"]}
@@ -42,7 +39,9 @@ class App extends Component {
           admissionDate={user.data["Admission date"]}
           lastBreakdown={user.data["Last breakdown"]}
           yearlyFee={user.data["Yearly fee"]}
-          knowsJoker={user.data["Knows the Joker?"]}
+          knowsJoker={user.data["Knows the Joker?"]}*/
+          data={user.data}
+          kids={user.kids}
         />
 
       )
@@ -52,6 +51,20 @@ class App extends Component {
 
     return (
       <table>
+        <thead>
+          <tr>
+            <th>Identification number</th>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Risk</th>
+            <th>Hair length</th>
+            <th>IQ</th>
+            <th>Admission date</th>
+            <th>Last breakdown</th>
+            <th>Yearly fee</th>
+            <th>Knows the Joker?</th>
+          </tr>
+        </thead>
         <tbody>
           {people}
         </tbody>

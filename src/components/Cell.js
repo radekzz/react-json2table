@@ -4,7 +4,7 @@ class Cell extends Component {
    render() {
       return (
          <td>
-            {this.props.content}
+            {this.props.contentData}
          </td>
       );
    }
